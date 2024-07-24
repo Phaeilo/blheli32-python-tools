@@ -1,0 +1,3 @@
+# BLHeli32 Python Tools
+
+Some Python scripts to interact with BLHeli32 ESCs. More to come...
