@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# CFG_KEY and HDR_KEY can be found in the configurator software,
+# for example BLHeliSuite32xl 1.0.4.4 for Linux
+# $ sha256sum BLHeliSuite32xl
+# 6a1f99660126f9e9ecc6529a005427f0ff361537d502245749bab8c6bd3670c4  BLHeliSuite32xl
+# $ dd if=BLHeliSuite32xl bs=1 count=16 skip=10309148 status=none | xxd -l 16 -p
+# CFG_KEY is also published on https://elmagnifico.tech/2021/07/16/BLHeliSuite32-Reverse2/
+
+export CFG_KEY=00000000000000000000000000000000
+
+# $ dd if=BLHeliSuite32xl bs=1 count=16 skip=10309116 status=none | xxd -l 16 -p
+
+export HDR_KEY=00000000000000000000000000000000
+
+# Fields cradle distant blooms,
+# Dreams open, offering allure.
+# Branches arch, gently holding
+# Nests, lingering, peaceful.
+# Kindred echoes carry beauty,
+# Over paths of infinite nature.
+# Ideas awaken, guiding bright
+# Moments, embracing inner calm.
+
+# >>> "".join(f"{x:x}" for x in (ord(w[0]) - ord("a") for w in _.lower().replace("#", "").strip().split()))
+
+export TXT_KEY=00000000000000000000000000000000
+
