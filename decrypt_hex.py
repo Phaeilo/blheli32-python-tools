@@ -16,15 +16,19 @@ def to_file(chunks):
     return fh.getvalue()
 
 
-def handle_chunk(payload, offset):
+def handle_chunk(offset, ciphertext):
     if offset < 0x7C00:
-        plaintext = decrypt(payload, offset, TXT_KEY)
+        plaintext = decrypt(ciphertext, offset, TXT_KEY)
     elif offset < 0x8000:
-        plaintext = deframe(decrypt(payload, offset, CFG_KEY))
-        # FIXME offset isn't quite right after de-framing
+        plaintext = decrypt(ciphertext, offset, CFG_KEY)
+        # throw away the first two bytes of every eight byte block
+        plaintext = deframe(plaintext)
+        # fix offset to account for four missing bytes in every 16 byte block
+        assert offset & 0xf == 0
+        offset -= (offset - 0x7c00) >> 2
     else:
         raise Exception()
-    return plaintext
+    return offset, plaintext
 
 
 def parse_hexfile(lines):
@@ -47,7 +51,7 @@ def parse_hexfile(lines):
         check_ = (((sum(buff[:-1]) & 0xFF) ^ 0xFF) + 1) & 0xFF
         assert check == check_
 
-        plaintext = handle_chunk(payload, offset)
+        offset, plaintext = handle_chunk(offset, payload)
 
         if not decrypt_probably_ok and plaintext in (b"\x00" * 16, b"\xff" * 16):
             decrypt_probably_ok = True

@@ -91,6 +91,7 @@ def main():
 
                 eb = fway.cmd(FWayCmd.DEVICE_READ, b"\x10", 0xEB00)
                 print(f"{eb=!r}")
+                # TODO ReacActivationStat
 
                 serial_num = fway.cmd(FWayCmd.DEVICE_READ, b"\x10", 0xF7AC)
                 print(f"{serial_num=!r}")

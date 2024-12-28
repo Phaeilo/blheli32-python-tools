@@ -69,5 +69,8 @@ def deframe(buff: bytes) -> bytes:
 
 
 def frame(buff: bytes) -> bytes:
-    # TODO implement
-    return b""
+    res = b""
+    for i in range(0, len(buff), 6):
+        res += b"\x00\x00"
+        res += buff[i:i+6]
+    return res
