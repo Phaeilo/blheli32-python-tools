@@ -41,6 +41,11 @@ and also documented/reverse-engineered elsewhere.
 ./read_cfg.py -p <port> -n <esc-id> -v
 ```
 
+
+### `fake_server.py`
+Emulates some APIs of the blheli.org web server which are used by the official configurator.
+
+
 ## Planned Features
 - Script to flash firmware, either BLHeli32 or FOSS alternatives
 - Configuration parsing for `read_cfg.py`
