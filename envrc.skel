@@ -18,3 +18,8 @@ export HDR_KEY=00000000000000000000000000000000
 # https://github.com/racerxdl/stm32f0-pico-dump
 
 export TXT_KEY=00000000000000000000000000000000
+
+# only needed for fake_server operation
+# extract these from BLHeliSuite32xl or the Android app
+export SERVER_AES_KEY=5a37xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx73
+export SERVER_AES_IV=68xxxxxxxxxxxxxxxxxxxxxxxxxxxx38
