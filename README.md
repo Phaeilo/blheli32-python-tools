@@ -8,6 +8,11 @@ usability. These tools aim to breathe new life into BLHeli32 ESCs, which have
 been rendered abandonware following the cessation of official support, ensuring
 they remain functional and avoid becoming e-waste.
 
+Typical use: use `dump_fw.py` to extract the firmware from an existing ESC, or use
+`decrypt_hex.py` to convert an existing hex file. Then use `flash_fw.py` to write it
+to an ESC. Alternatively, you can also write any other firmware to the ESC but keep
+the BLHeli32 bootloeader.
+
 Validated so far on HAKRC_35A and HAKRC_AT421 and TEKKO_32_F4.
 
 ## Available Scripts
