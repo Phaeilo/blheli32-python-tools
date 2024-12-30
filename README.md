@@ -8,6 +8,8 @@ usability. These tools aim to breathe new life into BLHeli32 ESCs, which have
 been rendered abandonware following the cessation of official support, ensuring
 they remain functional and avoid becoming e-waste.
 
+Validated so far on HAKRC_35A and HAKRC_AT421 and TEKKO_32_F4.
+
 ## Available Scripts
 
 ### `decrypt_hex.py`
@@ -25,6 +27,15 @@ A guess strategy based on common prefixes/sequences is applied to make guessing 
 ```bash
 ./dump_fw.py -p <port> -n <esc-id> -o <offset> -l <length> -w <output_file>
 ```
+
+
+### `flash_fw.py`
+Writes new firmware from an unencrypted, binary file to an ESC. First, the flash contents are removed, then
+the new firmware is uploaded, and finally the written data is verified. The configuration section is also replaced
+with data from the binary file, hence existing ESC configuration is reset. Lastly, the header/license section is
+populated with the correct serial number. It is not possible to overwrite or delete the bootloader, so if something
+goes wrong the device shouldn't be bricked. This script is still pretty rough.
+
 
 ### `generate_guesses.py`
 Reads binary data from `stdin` and generates a guessing strategy base on observed patterns.
