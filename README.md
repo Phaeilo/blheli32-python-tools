@@ -57,6 +57,10 @@ and also documented/reverse-engineered elsewhere.
 Emulates some APIs of the blheli.org web server which are used by the official configurator.
 
 
+### `get_models.py`
+Utility script to extract all model names from a .cfg file.
+
+
 ## Planned Features
 - Script to flash firmware, either BLHeli32 or FOSS alternatives
 - Configuration parsing for `read_cfg.py`
