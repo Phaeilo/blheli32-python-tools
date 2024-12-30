@@ -11,7 +11,7 @@ they remain functional and avoid becoming e-waste.
 Typical use: use `dump_fw.py` to extract the firmware from an existing ESC, or use
 `decrypt_hex.py` to convert an existing hex file. Then use `flash_fw.py` to write it
 to an ESC. Alternatively, you can also write any other firmware to the ESC but keep
-the BLHeli32 bootloeader.
+the BLHeli32 bootloader.
 
 Validated so far on HAKRC_35A and HAKRC_AT421 and TEKKO_32_F4.
 
@@ -66,8 +66,11 @@ Emulates some APIs of the blheli.org web server which are used by the official c
 Utility script to extract all model names from a .cfg file.
 
 
+## Requirements / Dependencies
+ * `pyserial`
+ * `cryptography` (only for the server emulator)
+
 ## Planned Features
-- Script to flash firmware, either BLHeli32 or FOSS alternatives
 - Configuration parsing for `read_cfg.py`
 - Improved guessing algorithms for `dump_fw.py`.
 
